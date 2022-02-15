@@ -8,7 +8,7 @@ const TodoWrapper = styled.div`
     /* background-color: white; */
   }
   h1 {
-    font-size: 60px;
+    font-size: 70px;
     font-weight: 900;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
@@ -17,7 +17,7 @@ const TodoWrapper = styled.div`
     margin: 0;
     padding: 0;
     li {
-      font-size: 20px;
+      font-size: 22px;
       list-style-type: none;
       margin: 0;
       padding: 0;

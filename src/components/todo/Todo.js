@@ -72,15 +72,16 @@ const Todo = () => {
               <li
                 key={index}
                 className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3"
+                onClick={() => Completed(item, index)}
               >
                 <div className="tasks d-flex gap-2">
                   <div className="completed ">
                     {item.completed == true ? (
-                      <span onClick={() => Completed(item, index)}>
+                      <span>
                         <FontAwesomeIcon icon={faCircleCheck} />
                       </span>
                     ) : (
-                      <span onClick={() => Completed(item, index)}>
+                      <span>
                         <FontAwesomeIcon icon={faCircleNotch} />
                       </span>
                     )}
