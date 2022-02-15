@@ -9,6 +9,10 @@
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
+body {
+  background-image: url(https://thumbs.dreamstime.com/b/todo-list-seamless-pattern-universal-background-66678083.jpg);
+  background-size: 25%;
+}
 img {
   position: absolute;
   top: 0;
