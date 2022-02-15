@@ -95,7 +95,7 @@ const Todo = () => {
           <li className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3">
             <p>{todo.length} todos have </p>
             <button className="btn" onClick={() => All()}>
-              All
+              Show All
             </button>
             <button className="btn" onClick={() => Active()}>
               Active
