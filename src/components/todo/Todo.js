@@ -23,9 +23,10 @@ const Todo = () => {
 
   const RemoveTodo = (item, index) => {
     const t = [...todo];
-    t.splice(index, 1);
-    setTodo(t);
-    setFilter(t);
+    const a = t.filter((el) => el.id != item.id);
+    console.log(a);
+    setFilter(a);
+    setTodo(a);
   };
 
   const FiltComp = () => {
@@ -68,36 +69,6 @@ const Todo = () => {
           <h1 className="text-left">TODO</h1>
           <Form />
           <ul className="rounded">
-            {filter.map((item, index) => (
-              <li
-                key={index}
-                className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3"
-                onClick={() => Completed(item, index)}
-              >
-                <div className="tasks d-flex gap-2">
-                  <div className="completed ">
-                    {item.completed == true ? (
-                      <span>
-                        <FontAwesomeIcon icon={faCircleCheck} />
-                      </span>
-                    ) : (
-                      <span>
-                        <FontAwesomeIcon icon={faCircleNotch} />
-                      </span>
-                    )}
-                  </div>
-                  <p className={item.completed && "throw"}>{item.title}</p>
-                </div>
-                <div className="btns">
-                  <div
-                    className="delete"
-                    onClick={() => RemoveTodo(item, index)}
-                  >
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                  </div>
-                </div>
-              </li>
-            ))}
             <li className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3">
               <p>{todo.length} todos have </p>
               <button className="btn" onClick={() => All()}>
@@ -113,6 +84,37 @@ const Todo = () => {
                 Clear Complited
               </button>
             </li>
+            {filter.map((item, index) => (
+              <li
+                key={index}
+                className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3"
+              >
+                <div className="tasks d-flex gap-2">
+                  <div className="completed ">
+                    {item.completed == true ? (
+                      <span onClick={() => Completed(item, index)}>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                      </span>
+                    ) : (
+                      <span onClick={() => Completed(item, index)}>
+                        <FontAwesomeIcon icon={faCircleNotch} />
+                      </span>
+                    )}
+                  </div>
+                  <p className={item.completed && "throw"}>{item.title}</p>
+                </div>
+                <div className="btns">
+                  <div className="delete">
+                    <button
+                      className="btn"
+                      onClick={() => RemoveTodo(item, index)}
+                    >
+                      <FontAwesomeIcon icon={faCircleXmark} />
+                    </button>
+                  </div>
+                </div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
