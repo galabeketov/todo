@@ -6,12 +6,7 @@ import Main from "./pages/Main/Main";
 import TodoContext from "./context/TodoContext";
 
 function App() {
-  const [todo, setTodo] = useState([
-    { id: 1, title: "learn React", completed: true },
-    { id: 2, title: "learn React", completed: false },
-    { id: 3, title: "learn React", completed: true },
-    { id: 4, title: "learn React", completed: false },
-  ]);
+  const [todo, setTodo] = useState([]);
   return (
     <TodoContext.Provider value={{ todo, setTodo }}>
       <Main />
