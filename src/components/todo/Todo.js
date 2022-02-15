@@ -61,54 +61,61 @@ const Todo = () => {
   //   setTodo(filter);
   // }, [filter]);
   return (
-    <TodoWrapper className="pt-5">
-      <div className="todo">
-        <h1 className="text-left">TODO</h1>
-        <Form />
-        <ul className="rounded">
-          {filter.map((item, index) => (
-            <li
-              key={index}
-              className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3"
-            >
-              <div className="tasks d-flex gap-2">
-                <div className="completed ">
-                  {item.completed == true ? (
-                    <span onClick={() => Completed(item, index)}>
-                      <FontAwesomeIcon icon={faCircleCheck} />
-                    </span>
-                  ) : (
-                    <span onClick={() => Completed(item, index)}>
-                      <FontAwesomeIcon icon={faCircleNotch} />
-                    </span>
-                  )}
+    <TodoWrapper className="pt-5 row">
+      <div className="col-lg-3 col-md-2 col-sm-1 "></div>
+      <div className="col-lg-6 col-md-8 col-sm-10">
+        <div className="todo">
+          <h1 className="text-left">TODO</h1>
+          <Form />
+          <ul className="rounded">
+            {filter.map((item, index) => (
+              <li
+                key={index}
+                className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3"
+              >
+                <div className="tasks d-flex gap-2">
+                  <div className="completed ">
+                    {item.completed == true ? (
+                      <span onClick={() => Completed(item, index)}>
+                        <FontAwesomeIcon icon={faCircleCheck} />
+                      </span>
+                    ) : (
+                      <span onClick={() => Completed(item, index)}>
+                        <FontAwesomeIcon icon={faCircleNotch} />
+                      </span>
+                    )}
+                  </div>
+                  <p className={item.completed && "throw"}>{item.title}</p>
                 </div>
-                <p className={item.completed && "throw"}>{item.title}</p>
-              </div>
-              <div className="btns">
-                <div className="delete" onClick={() => RemoveTodo(item, index)}>
-                  <FontAwesomeIcon icon={faCircleXmark} />
+                <div className="btns">
+                  <div
+                    className="delete"
+                    onClick={() => RemoveTodo(item, index)}
+                  >
+                    <FontAwesomeIcon icon={faCircleXmark} />
+                  </div>
                 </div>
-              </div>
+              </li>
+            ))}
+            <li className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3">
+              <p>{todo.length} todos have </p>
+              <button className="btn" onClick={() => All()}>
+                Show All
+              </button>
+              <button className="btn" onClick={() => Active()}>
+                Active
+              </button>
+              <button className="btn" onClick={() => FiltComp()}>
+                Completed
+              </button>
+              <button className="btn" onClick={() => FiltUncomp()}>
+                Clear Complited
+              </button>
             </li>
-          ))}
-          <li className="d-flex justify-content-between align-items-center  border text-dark px-3 py-3">
-            <p>{todo.length} todos have </p>
-            <button className="btn" onClick={() => All()}>
-              Show All
-            </button>
-            <button className="btn" onClick={() => Active()}>
-              Active
-            </button>
-            <button className="btn" onClick={() => FiltComp()}>
-              Completed
-            </button>
-            <button className="btn" onClick={() => FiltUncomp()}>
-              Clear Complited
-            </button>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
+      <div className="col-lg-3 col-md-2 col-sm-1 "></div>
     </TodoWrapper>
   );
 };

@@ -4,7 +4,7 @@ const TodoWrapper = styled.div`
   z-index: 999;
   .todo {
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
     /* background-color: white; */
   }
   h1 {
